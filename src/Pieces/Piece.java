@@ -16,7 +16,7 @@ public class Piece {
         this.inGame = inGame;
     }
 
-    public ChessBoard play(ChessBoard  cb){
+    public ChessBoard play(ChessBoard cb) {
 
         System.out.println("Classe mae");
 
@@ -24,37 +24,42 @@ public class Piece {
 
     }
 
-    public Type getType(){
+    public Type getType() {
         return type;
     }
 
-    public Color getColor(){
+    public Color getColor() {
         return color;
     }
 
-    public void setInGame(boolean inGame){
+    public void setInGame(boolean inGame) {
         this.inGame = inGame;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
 
         return getType().toString() + "//" + getColor().toString();
 
     }
 
-    public void setPosX(int posX){
+    public void setPosX(int posX) {
         this.posX = posX;
     }
 
     public void setPosY(int posY) {
         this.posY = posY;
     }
-    public int getPosX(){
+
+    public int getPosX() {
         return this.posX;
     }
 
     public int getPosY() {
         return posY;
+    }
+
+    public boolean isInGame() {
+        return inGame;
     }
 }

@@ -20,6 +20,7 @@ public class ChessBoard {
 
     Piece[][] squares = new Piece[9][9];
     Color time = Color.WHITE;
+    boolean bothKingAlive = true;
 
     public void initGame() {
 
@@ -138,6 +139,13 @@ public class ChessBoard {
 
         while (true) {
 
+            if (!bothKingAlive) {
+
+                return;
+
+            }
+
+
             showGame();
 
             char[] c = new char[2];
@@ -202,9 +210,13 @@ public class ChessBoard {
                 } else {
 
                     if (time == Color.WHITE) {
+
                         System.out.println("Is time to the white");
+
                     } else {
+
                         System.out.println("Is time to the black");
+
                     }
 
                 }
@@ -314,5 +326,9 @@ public class ChessBoard {
 
     public void setTime(Color color) {
         this.time = color;
+    }
+
+    public void setBothKingAlive(boolean bothKingAlive) {
+        this.bothKingAlive = bothKingAlive;
     }
 }

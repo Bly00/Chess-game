@@ -37,8 +37,6 @@ public class Pawn extends Piece {
         }
 
 
-        char[] possibility = new char[2];
-
         System.out.print("\n" + this);
 
         char[] c = new char[2];
@@ -153,7 +151,18 @@ public class Pawn extends Piece {
 
                 } else if (posX == this.posX - 1 && posY == this.posY - 1) {
 
-                    if (cb.getSquares()[posX][posY] != null) {
+                    if (cb.getSquares()[posX][posY] != null && cb.getSquares()[posX][posY].getColor() != Color.WHITE) {
+
+
+                        if (cb.getSquares()[posX][posY].getType() == Type.KING) {
+
+                            System.out.println("\nThe Whites Win\n");
+
+                            cb.setBothKingAlive(false);
+
+                            return cb;
+
+                        }
 
                         cb.getSquares()[posX][posY] = this;
 
@@ -175,7 +184,17 @@ public class Pawn extends Piece {
 
                     }
 
-                } else if (posX == this.posX - 1 && posY == this.posY + 1) {
+                } else if (posX == this.posX - 1 && posY == this.posY + 1 && cb.getSquares()[posX][posY].getColor() != Color.WHITE) {
+
+                    if (cb.getSquares()[posX][posY].getType() == Type.KING) {
+
+                        System.out.println("\nThe Whites Win\n");
+
+                        cb.setBothKingAlive(false);
+
+                        return cb;
+
+                    }
 
                     if (cb.getSquares()[posX][posY] != null) {
 
@@ -255,7 +274,17 @@ public class Pawn extends Piece {
 
                     }
 
-                } else if (posX == this.posX + 1 && posY == this.posY - 1) {
+                } else if (posX == this.posX + 1 && posY == this.posY - 1 && cb.getSquares()[posX][posY].getColor() != Color.BLACK) {
+
+                    if (cb.getSquares()[posX][posY].getType() == Type.KING) {
+
+                        System.out.println("\nThe Blacks Win\n");
+
+                        cb.setBothKingAlive(false);
+
+                        return cb;
+
+                    }
 
                     if (cb.getSquares()[posX][posY] != null) {
 
@@ -274,7 +303,17 @@ public class Pawn extends Piece {
 
                     }
 
-                } else if (posX == this.posX + 1 && posY == this.posY + 1) {
+                } else if (posX == this.posX + 1 && posY == this.posY + 1 && cb.getSquares()[posX][posY].getColor() != Color.BLACK) {
+
+                    if (cb.getSquares()[posX][posY].getType() == Type.KING) {
+
+                        System.out.println("\nThe Blacks Win\n");
+
+                        cb.setBothKingAlive(false);
+
+                        return cb;
+
+                    }
 
                     if (cb.getSquares()[posX][posY] != null) {
 
