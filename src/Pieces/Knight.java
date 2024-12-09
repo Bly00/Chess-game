@@ -79,6 +79,7 @@ public class Knight extends Piece {
 
             }
 
+
             if (cb.getTime() == Color.WHITE) {
 
 
@@ -369,9 +370,10 @@ public class Knight extends Piece {
 
                 }
 
-            } else {
+            }
+            if (cb.getTime() == Color.BLACK) {
 
-                if (posX == this.posX + 2 && posY == this.posY - 1) {
+                if (posX == this.posX + 2 && posY == this.posY + 1) {
 
                     if (cb.getSquares()[posX][posY] == null) {
 
@@ -406,7 +408,7 @@ public class Knight extends Piece {
 
                     }
 
-                } else if (posX == this.posX + 2 && posY == this.posY + 1) {
+                } else if (posX == this.posX + 2 && posY == this.posY - 1) {
 
                     if (cb.getSquares()[posX][posY] == null) {
 
@@ -422,6 +424,216 @@ public class Knight extends Piece {
                         return cb;
 
                     } else if (cb.getSquares()[posX][posY].getColor() != Color.BLACK) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else {
+
+                        System.out.println("\nInvalid move\n");
+                        continue;
+
+                    }
+
+                } else if (posX == this.posX - 2 && posY == this.posY + 1) {
+
+                    if (cb.getSquares()[posX][posY] == null) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else if (cb.getSquares()[posX][posY].getColor() == Color.WHITE) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else {
+
+                        System.out.println("\nInvalid move\n");
+                        continue;
+
+                    }
+
+                } else if (posX == this.posX - 2 && posY == this.posY - 1) {
+
+                    if (cb.getSquares()[posX][posY] == null) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else if (cb.getSquares()[posX][posY].getColor() == Color.WHITE) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else {
+
+                        System.out.println("\nInvalid move\n");
+                        continue;
+
+                    }
+
+                } else if (posX == this.posX - 1 && posY == this.posY - 2) {
+
+                    if (cb.getSquares()[posX][posY] == null) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else if (cb.getSquares()[posX][posY].getColor() == Color.WHITE) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else {
+
+                        System.out.println("\nInvalid move\n");
+                        continue;
+
+                    }
+
+                } else if (posX == this.posX + 1 && posY == this.posY - 2) {
+
+                    if (cb.getSquares()[posX][posY] == null) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else if (cb.getSquares()[posX][posY].getColor() == Color.WHITE) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else {
+
+                        System.out.println("\nInvalid move\n");
+                        continue;
+
+                    }
+
+                } else if (posX == this.posX - 1 && posY == this.posY + 2) {
+
+                    if (cb.getSquares()[posX][posY] == null) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else if (cb.getSquares()[posX][posY].getColor() == Color.WHITE) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else {
+
+                        System.out.println("\nInvalid move\n");
+                        continue;
+
+                    }
+
+                } else if (posX == this.posX + 1 && posY == this.posY + 2) {
+
+                    if (cb.getSquares()[posX][posY] == null) {
+
+                        cb.getSquares()[posX][posY] = this;
+
+                        cb.getSquares()[this.posX][this.posY] = null;
+
+                        this.posX = posX;
+                        this.posY = posY;
+
+                        cb.setTime(Color.WHITE);
+
+                        return cb;
+
+                    } else if (cb.getSquares()[posX][posY].getColor() == Color.WHITE) {
 
                         cb.getSquares()[posX][posY] = this;
 

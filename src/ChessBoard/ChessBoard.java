@@ -99,7 +99,7 @@ public class ChessBoard {
         squares[1][2] = new Knight(Color.BLACK);
 
         squares[1][2].setPosX(1);
-        squares[1][2].setPosX(2);
+        squares[1][2].setPosY(2);
 
         squares[1][7] = new Knight(Color.BLACK);
 
@@ -144,7 +144,6 @@ public class ChessBoard {
                 return;
 
             }
-
 
             showGame();
 
@@ -200,8 +199,9 @@ public class ChessBoard {
             }
 
             int posX = c[0] - 96;
-
+            
             if (squares[posX][posY] != null) {
+
 
                 if (squares[posX][posY].getColor() == time) {
 
@@ -232,7 +232,6 @@ public class ChessBoard {
 
     public void showGame() {
 
-        System.out.println();
 
         char pS = 'A';
         int pI = 1;
