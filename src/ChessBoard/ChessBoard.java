@@ -56,6 +56,7 @@ public class ChessBoard {
             i = 7;
         }
 
+
         squares[1][5] = new King(Color.BLACK);
 
         squares[1][5].setPosX(1);
@@ -147,65 +148,20 @@ public class ChessBoard {
 
             showGame();
 
-            char[] c = new char[2];
-            int posY = 0;
+            int[] pos = choicePosition();
 
-            while (true) {
+            int posX = pos[0];
+            int posY = pos[1];
 
-                System.out.print("Enter position piece: ");
-                String[] position = sc.nextLine().split("");
-
-                if (position.length != 2) {
-                    System.out.println("Invalid input");
-                    continue;
-                }
-
-                for (i = 0; i < 2; i++) {
-                    c[i] = position[i].charAt(0);
-                }
+            System.out.println(posX + " - " + posY);
 
 
-                try {
-                    posY = Integer.parseInt(String.valueOf(c[1]));
-
-                    if (posY > 8 || posY < 1) {
-                        throw new Exception();
-                    }
-
-
-                } catch (Exception e) {
-                    System.out.println("The second character must be a number between 1 and 8");
-                    continue;
-                }
-
-                boolean verification = false;
-
-                for (char a = 'a'; a <= 'h'; a++) {
-
-                    if (c[0] == a) {
-                        verification = true;
-                        break;
-                    }
-
-                }
-
-                if (!verification) {
-                    System.out.println("The first character must be a letter between A and H");
-                    continue;
-                } else {
-                    break;
-                }
-
-            }
-
-            int posX = c[0] - 96;
-            
             if (squares[posX][posY] != null) {
-
 
                 if (squares[posX][posY].getColor() == time) {
 
                     game = squares[posX][posY].play(game);
+
 
                 } else {
 
@@ -329,5 +285,75 @@ public class ChessBoard {
 
     public void setBothKingAlive(boolean bothKingAlive) {
         this.bothKingAlive = bothKingAlive;
+    }
+
+    public static int[] choicePosition() {
+
+        char[] c = new char[2];
+        int[] position = new int[2];
+
+        int posY = 0;
+
+        while (true) {
+
+            System.out.print("Enter positions piece: ");
+
+            String[] chars = sc.nextLine().split("");
+
+            if (chars.length != 2) {
+                System.out.println("Invalid input");
+                continue;
+            }
+
+            for (int i = 0; i < 2; i++) {
+                c[i] = chars[i].charAt(0);
+            }
+
+
+            try {
+
+                posY = Integer.parseInt(String.valueOf(c[1]));
+
+                if (posY > 8 || posY < 1) {
+                    throw new Exception();
+                }
+
+
+            } catch (Exception e) {
+
+                System.out.println("The second character must be a number between 1 and 8");
+                continue;
+
+            }
+
+            boolean verification = false;
+
+            for (char a = 'a'; a <= 'h'; a++) {
+
+                if (c[0] == a) {
+                    verification = true;
+                    break;
+                }
+
+            }
+
+            if (!verification) {
+
+                System.out.println("The first character must be a letter between A and H");
+                continue;
+
+            } else {
+
+                position[1] = posY;
+                position[0] = c[0] - 96;
+
+                break;
+
+            }
+
+
+        }
+
+        return position;
     }
 }

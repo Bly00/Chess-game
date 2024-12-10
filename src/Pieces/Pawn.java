@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static ChessBoard.ChessBoard.choicePosition;
 import static ChessBoard.ChessBoard.sc;
 
 public class Pawn extends Piece {
@@ -39,67 +40,12 @@ public class Pawn extends Piece {
 
         System.out.print("\n" + this);
 
-        char[] c = new char[2];
-        int posY = 0;
-        int posX = 0;
-        int i;
-
         while (true) {
 
+            int[] pos = choicePosition();
 
-            boolean verification;
-
-            while (true) {
-
-                System.out.print(" - Your move: ");
-
-                String[] position = sc.nextLine().split("");
-
-                if (position.length != 2) {
-                    System.out.println("Invalid input");
-                    continue;
-                }
-
-                for (i = 0; i < 2; i++) {
-                    c[i] = position[i].charAt(0);
-                }
-
-
-                try {
-
-                    posY = Integer.parseInt(String.valueOf(c[1]));
-
-                    if (posY > 8 || posY < 1) {
-                        throw new Exception();
-                    }
-
-
-                } catch (Exception e) {
-                    System.out.println("The second character must be a number between 1 and 8");
-                    continue;
-                }
-
-                verification = false;
-
-                for (char a = 'a'; a <= 'h'; a++) {
-
-                    if (c[0] == a) {
-                        verification = true;
-                        break;
-                    }
-
-                }
-
-                if (!verification) {
-                    System.out.println("The first character must be a letter between A and H");
-                    continue;
-                } else {
-                    posX = c[0] - 96;
-                    break;
-                }
-
-
-            }
+            int posX = pos[0];
+            int posY = pos[1];
 
             if (cb.getTime() == Color.WHITE) {
 
